@@ -1,0 +1,73 @@
+﻿@model SOL_IVAN_MORALES.Models.LIBRO
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles del libro</h2>
+
+<div>
+    <h4>LIBRO : @Html.DisplayFor(model => model.NOMBRE)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATEGORIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATEGORIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAIS)
+        </dd>
+
+        <dt>
+            FECHA PUBLICACIÓN
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_PUBLICACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDITORIAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDITORIAL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Regresar al Catálogo", "Index")
+</p>

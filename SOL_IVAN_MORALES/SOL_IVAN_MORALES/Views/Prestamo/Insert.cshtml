@@ -1,0 +1,79 @@
+﻿@model SOL_IVAN_MORALES.Models.ViewModel.PrestamoViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>AGREGAR NUEVO PRESTAMO</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">LIBRO</label>
+            <div class="col-md-10">
+                <select id="ID_LIBRO" name="ID_LIBRO" class="form-control">
+                    <option value="">-- Seleccione un libro --</option>
+                    @foreach (var item in Model.lstLibro)
+                    {
+                        <option value="@item.ID" @(item.ID == Model.PRESTAMO.ID_LIBRO ? "selected" : "")>@item.NOMBRE</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.PRESTAMO.FECHA_PRESTAMO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PRESTAMO.FECHA_PRESTAMO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRESTAMO.FECHA_PRESTAMO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">USUARIO</label>
+            <div class="col-md-10">
+                <select id="DNI_USUARIO" name="DNI_USUARIO" class="form-control">
+                    <option value="">-- Seleccione un usuario --</option>
+                    @foreach (var item in Model.lstUsuario)
+                    {
+                        <option value="@item.DNI" @(item.DNI == Model.PRESTAMO.DNI_USUARIO ? "selected" : "")>@item.NOMBRES @item.APELLIDOS</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">TIPO LECTURA</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.PRESTAMO.TIPO_LECTURA, new List<SelectListItem>
+                {
+                    new SelectListItem { Value = "1", Text = "Biblioteca" },
+                    new SelectListItem { Value = "2", Text = "Casa" }
+                }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PRESTAMO.TIPO_LECTURA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.PRESTAMO.FECHA_DEVOLUCION, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PRESTAMO.FECHA_DEVOLUCION, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRESTAMO.FECHA_DEVOLUCION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="btnInsertPrestamo" type="submit" value="Realizar Préstamo" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar a la lista de préstamos", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<SOL_IVAN_MORALES.Models.PRESTAMO_DETALLE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gestión de préstamos de libros</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Préstamo", "Insert")
+</p>
+<div style="overflow:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                Id. Préstamo
+            </th>
+            <th>
+                Id. Libro
+            </th>
+            <th>
+                Nombre Libro
+            </th>
+            <th>
+                Fecha Préstamo
+            </th>
+            <th>
+                DNI Usuario
+            </th>
+            <th>
+                Nombre Usuario
+            </th>
+            <th>
+                Apellido Usuario
+            </th>
+            <th>
+                Tipo Lectura
+            </th>
+            <th>
+                Fecha Devolución
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRESTAMO.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRESTAMO.ID_LIBRO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LIBRO.NOMBRE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRESTAMO.FECHA_PRESTAMO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRESTAMO.DNI_USUARIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USUARIO.NOMBRES)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USUARIO.APELLIDOS)
+                </td>
+                <td>
+                    @if (item.PRESTAMO.TIPO_LECTURA == 1)
+                    {
+                        <text>Biblioteca</text>
+                    }
+                    else if (item.PRESTAMO.TIPO_LECTURA == 2)
+                    {
+                        <text>Casa</text>
+                    }
+                    else
+                    {
+                        <text></text>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRESTAMO.FECHA_DEVOLUCION)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.PRESTAMO.ID }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.PRESTAMO.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

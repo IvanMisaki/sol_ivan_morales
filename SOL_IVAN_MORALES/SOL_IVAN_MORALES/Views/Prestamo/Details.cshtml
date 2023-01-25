@@ -1,0 +1,93 @@
+﻿@model SOL_IVAN_MORALES.Models.ViewModel.PrestamoEditViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles del Préstamo</h2>
+
+<div>
+    <h4>Préstamo del libro '@Html.DisplayFor(model => model.libro.NOMBRE)' a '@Html.DisplayFor(model => model.usuario.NOMBRES) @Html.DisplayFor(model => model.usuario.APELLIDOS)'</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>ID PRÉSTAMO</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRESTAMO.ID)
+        </dd>
+        <dt>
+            <label>ID LIBRO</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libro.ID)
+        </dd>
+        <dt>
+            <label>NOMBRE LIBRO</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libro.NOMBRE)
+        </dd>
+
+        <dt>
+            <label>FECHA PRÉSTAMO</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRESTAMO.FECHA_PRESTAMO)
+        </dd>
+
+        <dt>
+            <label>DNI USUARIO</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRESTAMO.DNI_USUARIO)
+        </dd>
+        <dt>
+            <label>NOMBRE USUARIO</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.NOMBRES)
+        </dd>
+        <dt>
+            <label>APELLIDO USUARIO</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.APELLIDOS)
+        </dd>
+
+        <dt>
+            <label>TIPO LECTURA</label>
+        </dt>
+
+        <dd>
+            @if (Model.PRESTAMO.TIPO_LECTURA == 1)
+            {
+                <label style="font-weight: inherit;">Biblioteca</label>
+            }
+            else
+            {
+                <label style="font-weight: inherit;">Casa</label>
+            }
+        </dd>
+
+        <dt>
+            <label>FECHA DEVOLUCIÓN</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRESTAMO.FECHA_DEVOLUCION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PRESTAMO.ID }) |
+    @Html.ActionLink("Regresar a la lista de préstamos", "Index")
+</p>

@@ -1,0 +1,87 @@
+﻿@model SOL_IVAN_MORALES.Models.USUARIO
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles del usuario</h2>
+
+<div>
+    <h4>USUARIO : @Html.DisplayFor(model => model.NOMBRES) @Html.DisplayFor(model => model.APELLIDOS)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DNI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DNI)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @if (Model.ESTADO == 1)
+            {
+                <label>Habilitado</label>
+            }
+            else
+            {
+                <label>Deshabilitado</label>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIPO)
+        </dt>
+
+        <dd>
+            @if (Model.TIPO == 1)
+            {
+                <label>Docente</label>
+            }
+            else
+            {
+                <label>Alumno</label>
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.DNI }) |
+    @Html.ActionLink("Regresar a la lista de usuarios", "Index")
+</p>

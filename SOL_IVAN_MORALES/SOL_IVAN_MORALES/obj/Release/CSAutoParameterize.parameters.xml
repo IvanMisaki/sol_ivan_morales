@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SqlDbContext1-Web.config Connection String" description="SqlDbContext1 Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=servermisaki.database.windows.net; Initial Catalog=BdBiblioteca; User Id=administrador; Password=Misaki@2023.; MultipleActiveResultSets=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Usuario\\source\\repos\\SOL_IVAN_MORALES\\SOL_IVAN_MORALES\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SqlDbContext1']/@connectionString" />
+  </parameter>
+</parameters>

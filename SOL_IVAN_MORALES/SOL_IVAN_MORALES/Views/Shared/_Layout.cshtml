@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/personal.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
+    <script src="~/datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var screenWidth = $(window).width();
+            var orientation = "auto";
+
+            if (screenWidth >= 768) {
+                orientation = "bottom";
+            }
+
+            $('.datepicker').datepicker({
+                autoclose: true,
+                orientation: orientation
+            });
+
+
+            $("#btnInsertPrestamo").click(function () {
+                if ($("#ID_LIBRO").val() == "") {
+                    alert("Debe seleccionar un libro");
+                    return false;
+                }
+                if ($("#DNI_USUARIO").val() == "") {
+                    alert("Debe seleccionar un usuario");
+                    return false;
+                }
+            });
+
+
+            $("#btnInsertLibro").click(function () {
+                if ($("#NOMBRE").val() == "") {
+                    alert("Debe agregar un nombre para el libro");
+                    $("#NOMBRE").focus();
+                    return false;
+                }
+                if ($("#CATEGORIA").val() == "") {
+                    alert("Debe agregar una categoria para el libro");
+                    $("#CATEGORIA").focus();
+                    return false;
+                }
+                if ($("#AUTOR").val() == "") {
+                    alert("Debe agregar un autor para el libro");
+                    $("#AUTOR").focus();
+                    return false;
+                }
+                if ($("#PAIS").val() == "") {
+                    alert("Debe agregar un pais para el libro");
+                    $("#PAIS").focus();
+                    return false;
+                }
+                if ($("#FECHA_PUBLICACION").val() == "") {
+                    alert("Debe agregar una fecha de publicación para el libro");
+                    $("#FECHA_PUBLICACION").focus();
+                    return false;
+                }
+                if ($("#EDITORIAL").val() == "") {
+                    alert("Debe agregar una Editorial para el libro");
+                    $("#EDITORIAL").focus();
+                    return false;
+                }
+            });
+
+            $("#btnEditLibro").click(function () {
+                if ($("#NOMBRE").val() == "") {
+                    alert("Debe agregar un nombre para el libro");
+                    $("#NOMBRE").focus();
+                    return false;
+                }
+                if ($("#CATEGORIA").val() == "") {
+                    alert("Debe agregar una categoria para el libro");
+                    $("#CATEGORIA").focus();
+                    return false;
+                }
+                if ($("#AUTOR").val() == "") {
+                    alert("Debe agregar un autor para el libro");
+                    $("#AUTOR").focus();
+                    return false;
+                }
+                if ($("#PAIS").val() == "") {
+                    alert("Debe agregar un pais para el libro");
+                    $("#PAIS").focus();
+                    return false;
+                }
+                if ($("#FECHA_PUBLICACION").val() == "") {
+                    alert("Debe agregar una fecha de publicación para el libro");
+                    $("#FECHA_PUBLICACION").focus();
+                    return false;
+                }
+                if ($("#EDITORIAL").val() == "") {
+                    alert("Debe agregar una Editorial para el libro");
+                    $("#EDITORIAL").focus();
+                    return false;
+                }
+            });
+
+            $("#btnInsertUsuario").click(function () {
+                if ($("#DNI").val() == "") {
+                    alert("Debe agregar el DNI del usuario");
+                    $("#DNI").focus();
+                    return false;
+                }
+                if ($("#DNI").val().length != 8) {
+                    alert("El DNI debe tener 8 caracteres, favor de corregir");
+                    $("#DNI").focus();
+                    return false;
+                }
+                if ($("#NOMBRES").val() == "") {
+                    alert("Debe agregar el Nombre del usuario");
+                    $("#NOMBRES").focus();
+                    return false;
+                }
+                if ($("#APELLIDOS").val() == "") {
+                    alert("Debe agregar el Apellido del usuario");
+                    $("#APELLIDOS").focus();
+                    return false;
+                }
+                if ($("#EMAIL").val() == "") {
+                    alert("Debe agregar el Email del usuario");
+                    $("#EMAIL").focus();
+                    return false;
+                }
+                if ($("#TELEFONO").val() == "") {
+                    alert("Debe agregar el Teléfono del usuario");
+                    $("#TELEFONO").focus();
+                    return false;
+                }
+            });
+
+            $("#btnEditUsuario").click(function () {
+                if ($("#DNI").val() == "") {
+                    alert("Debe agregar el DNI del usuario");
+                    $("#DNI").focus();
+                    return false;
+                }
+                if ($("#NOMBRES").val() == "") {
+                    alert("Debe agregar el Nombre del usuario");
+                    $("#NOMBRES").focus();
+                    return false;
+                }
+                if ($("#APELLIDOS").val() == "") {
+                    alert("Debe agregar el Apellido del usuario");
+                    $("#APELLIDOS").focus();
+                    return false;
+                }
+                if ($("#EMAIL").val() == "") {
+                    alert("Debe agregar el Email del usuario");
+                    $("#EMAIL").focus();
+                    return false;
+                }
+                if ($("#TELEFONO").val() == "") {
+                    alert("Debe agregar el Telétono del usuario");
+                    $("#TELEFONO").focus();
+                    return false;
+                }
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Gestion de Libros", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Libros", "Index", "Libro")</li>
+                    <li>@Html.ActionLink("Usuarios", "Index", "Usuario")</li>
+                    <li>@Html.ActionLink("Prestamos", "Index", "Prestamo")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        @*<hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Ivan Morales</p>
+        </footer>*@
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
